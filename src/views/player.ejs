@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scrmbl Music - Player</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <h1>Scrmbl Music - Player</h1>
+    <p>Welcome to the player! Click a song to start playing!</p>
+    <p>Don't see a song you like? <a href="/upload">Upload one!</a></p>
+
+    <!-- Song Cards -->
+    <div id="songs-container">
+        <% for (let song in songs) { %>
+            <div class="box" onclick="playSong('<%= song %>', '<%= songs[song].mp3 %>', '<%= songs[song].author %>')">
+                <h2><%= song %></h2>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Custom Audio Player -->
+    <div id="audio-player">
+        <div class="song-info">
+        </div>
+        <audio id="audio" ontimeupdate="updateProgress()">
+            <source id="audio-source" src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <input type="range" id="progress-bar" value="0" max="100" step="1" onchange="seek(event)">
+        <div class="controls">
+            <button onclick="togglePlay()">▶️/⏸️</button>
+            <button onclick="stopSong()">⏹️</button>
+        </div>
+    </div>
+
+    <script src="/scripts/player.js"></script>
+</body>
+</html>

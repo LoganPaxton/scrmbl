@@ -1,0 +1,138 @@
+html, body {
+    background-color: #2f2f2f;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #ffcc00;
+    margin-top: 20px;
+}
+
+p {
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+a {
+    color: #ffcc00;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:active, a:visited, a:link {
+    color: #ffcc00;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Basic Layout */
+html, body, div { display: grid; }
+html { min-height: 100%; }
+body, div { place-content: center; }
+
+/* Center the header and paragraph at the top */
+body {
+    grid-gap: 1.75em;
+    grid-template-columns: 1fr;
+    text-shadow: 1px 1px 2px;
+}
+
+/* Song Cards */
+.song-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid for song cards */
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.box {
+    --list: #ffbc00, #ff0058;
+    --grad: linear-gradient(45deg, var(--list));
+    position: relative;
+    border: solid 4px transparent;
+    aspect-ratio: 7/10;
+    border-radius: 1em;
+    background: conic-gradient(rgb(0 0 0 / 0.75) 0 0) padding-box, 
+                var(--grad) border-box;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    padding: 10px;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box:nth-child(2) { --list: #03a9f4, #ff0058; }
+.box:nth-child(3) { --list: #4dff03, #00d0ff; }
+
+.box::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--grad);
+    filter: blur(0.75em);
+    content: '';
+}
+
+/* Custom Audio Player */
+#audio-player {
+    position: fixed;
+    bottom: 20px; /* Adjusts distance from the bottom */
+    left: 50%;
+    width: 75%; /* The total width of the player */
+    max-width: 600px; /* Optional: Max width of the player */
+    background: #111;
+    color: #ffcc00;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    transform: translateX(-50%); /* Center the player */
+}
+
+/* Controls: Play, Skip, Restart buttons */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    color: #ffcc00;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+/* Progress Bar Container */
+.progress-bar-container {
+    width: 100%; /* Full width of the player container */
+    padding: 0 15px; /* Padding on both sides of the progress bar */
+    display: flex;
+    justify-content: center;
+}
+
+/* Progress Bar */
+#progress-bar {
+    width: 75%; /* Progress bar takes up 75% of the container */
+    height: 5px;
+    background: #ffcc00;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Song Info Section */
+.song-info {
+    margin-top: 10px;
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+{
+    "test-song": {
+        "mp3": "/media/test.mp3",
+        "author": "No one!",
+        "date-uploaded": "3/24/25"
+    },
+    "ROLLIN N CONTROLLIN FREESTYLE": {
+        "mp3": "/media/ROLLIN_N_CONTROLLIN_FREESTYLE.mp3",
+        "author": "Dusty Locane",
+        "date-uploaded": "3/24/25"
+    },
+    "Example Song": {
+        "mp3": "/media/1742939129570-Election singing.mp3",
+        "author": "Example Author",
+        "date-uploaded": "3/25/2025"
+    }
+}

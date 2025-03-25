@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scrmbl Music - Upload</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+        <h1>Scrmbl Upload</h1>
+        <p>Let's upload a song! First, we will need some information from you. Don't worry, we use this to help others find your songs, and we don't sell your information!</p>
+        <div id="form-container">
+            <form action="/upload-api" method="post" enctype="multipart/form-data">
+                <label for="song_name">Song Name: </label>
+                <input id="song_name" type="text" name="name_field" value="Example Song"/>
+                <label for="song_author">Song Author: </label>
+                <input id="song_author" type="text" name="author_field" value="Example Author"/>
+                <label for="song_file">MP3 File: </label>
+                <input id="song_file" type="file" name="file_field" accept=".mp3"/>
+                <input type="submit" value="Upload!"/>
+            </form>
+        </div>
+    </body>
+</html>
